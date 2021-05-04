@@ -1,5 +1,23 @@
 ## Welcome to GitHub Pages
 
+### NAMP
+Basic scan to know wich ports are open
+```
+nmap -p- --open -T5 -v -n <IP> -oG allPorts
+```
+
+If the scan is slow, we launch this:
+```
+nmap -p- -sS --min-rate 5000 -vvv -n -Pn <IP> -oG allPorts
+```
+
+To grep ports from allPorts
+`cat allPorts | grep -oP '\d{1,5}/open' | awk '{print $1}' FS="/" | xargs | tr ' ' ','`
+
+To copy on the clipboard 
+`xclip -sel clip`
+
+
 You can use the [editor on GitHub](https://github.com/Jongtek-23/Jongtek-23.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
